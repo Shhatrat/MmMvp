@@ -1,0 +1,6 @@
+include ':core:api'
+include ':core:base'
+include ':feature:examplefeature'
+include ':feature:examplefeature2'
+include ':app'
+rootProject.name = "MmMvp"
