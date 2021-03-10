@@ -6,11 +6,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core:api"))
-
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Coroutines.CORE)
     implementation(Libraries.Coroutines.ANDROID)
     implementation(Libraries.Android.APPCOMPAT)
-    implementation(Libraries.Android.CONSTRAINT_LAYOUT)
+    implementation(Libraries.RxJava)
 }
