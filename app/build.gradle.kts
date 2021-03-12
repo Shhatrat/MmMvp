@@ -16,5 +16,4 @@ dependencies {
     implementation(BuildScript.Plugins.KOIN)
     implementation(Libraries.Retrofit)
     implementation(BuildScript.Plugins.MATERIAL)
-
 }

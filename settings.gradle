@@ -1,3 +1,4 @@
+include ':core:model'
 include ':core:api'
 include ':core:base'
 include ':feature:examplefeature'
