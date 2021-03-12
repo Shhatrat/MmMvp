@@ -19,7 +19,7 @@ object BuildScript {
         const val PROGUARD_GENERATOR =
             "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.8"
         const val KOIN = "org.koin:koin-android:2.2.2"
-
+        const val MATERIAL = "com.google.android.material:material:1.3.0"
     }
 
 }
@@ -47,14 +47,7 @@ object Libraries {
 
         }
 
-        const val CORE = "androidx.core:core-ktx:1.5.0-beta01"
-
         const val APPCOMPAT = "androidx.appcompat:appcompat:1.3.0-beta01"
-        const val FRAGMENT = "androidx.fragment:fragment-ktx:1.3.0-rc01"
-        const val TRANSITION = "androidx.transition:transition-ktx:1.4.0-rc01"
-        const val VIEWPAGER = "androidx.viewpager2:viewpager2:1.1.0-alpha01"
-        const val DESIGN = "com.google.android.material:material:1.3.0-rc01"
-        const val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:1.2.0-beta01"
         const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:2.0.4"
 
         object Navigation : DependenciesCollection {

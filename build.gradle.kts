@@ -166,17 +166,17 @@ fun TestedExtension.configureBuildTypes() {
             isMinifyEnabled = true
             isDebuggable = false
             configProguard(isLibrary)
-            setIsDebugMenuEnabled(false)
+//            setIsDebugMenuEnabled(false)
         }
         maybeCreate(AppConfig.BuildTypes.DEBUG.name).apply {
             isMinifyEnabled = true
             isDebuggable = false
             configProguard(isLibrary)
-            setIsDebugMenuEnabled(true)
+//            setIsDebugMenuEnabled(true)
         }
         maybeCreate(AppConfig.BuildTypes.DEV.name).apply {
             isDebuggable = true
-            setIsDebugMenuEnabled(true)
+//            setIsDebugMenuEnabled(true)
         }
     }
 }

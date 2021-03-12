@@ -7,8 +7,6 @@ plugins {
 
 dependencies {
     implementation(Libraries.KOTLIN)
-    implementation(Libraries.Coroutines.CORE)
-    implementation(Libraries.Coroutines.ANDROID)
     implementation(Libraries.Android.APPCOMPAT)
     implementation(Libraries.RxJava)
 }
