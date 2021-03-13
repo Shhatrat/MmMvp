@@ -18,8 +18,7 @@ object BuildScript {
         const val GRAPH_VISUALIZER = "com.vanniktech:gradle-dependency-graph-generator-plugin:0.5.0"
         const val PROGUARD_GENERATOR =
             "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.8"
-        const val KOIN = "org.koin:koin-android:2.2.2"
-        const val MATERIAL = "com.google.android.material:material:1.3.0"
+        const val REALM = "io.realm:realm-gradle-plugin:10.0.1"
     }
 
 }
@@ -77,6 +76,9 @@ object Libraries {
         }
 
     }
+
+    const val KOIN = "org.koin:koin-android:2.2.2"
+    const val MATERIAL = "com.google.android.material:material:1.3.0"
 
 
     object Retrofit : DependenciesCollection {

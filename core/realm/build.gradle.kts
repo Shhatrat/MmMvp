@@ -3,13 +3,11 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-android-extensions")
+    id("realm-android")
 }
 
 dependencies {
+    implementation(project(":core:base"))
     implementation(Libraries.KOTLIN)
-    implementation(Libraries.Android.APPCOMPAT)
-    implementation(Libraries.RxJava)
     implementation(Libraries.KOIN)
-    implementation(Libraries.Retrofit)
-
 }

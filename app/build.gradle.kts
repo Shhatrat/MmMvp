@@ -13,7 +13,7 @@ dependencies {
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.APPCOMPAT)
     implementation(Libraries.RxJava)
-    implementation(BuildScript.Plugins.KOIN)
+    implementation(Libraries.KOIN)
     implementation(Libraries.Retrofit)
-    implementation(BuildScript.Plugins.MATERIAL)
+    implementation(Libraries.MATERIAL)
 }
