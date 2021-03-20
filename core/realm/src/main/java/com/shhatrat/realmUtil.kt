@@ -1,6 +1,5 @@
 package com.shhatrat
 
-import com.shhatrat.model.RealmJoke
 import io.realm.Realm
 import io.realm.RealmQuery
 import org.bson.types.Decimal128
@@ -15,20 +14,20 @@ internal fun doInTransaction(action: (realm: Realm) -> Unit) {
 
 internal val realmInstance: Realm by lazy { Realm.getDefaultInstance() }
 
-fun <E> RealmQuery<E>.equalTo(nameOfPrimaryKey: String, id: Any): RealmQuery<E> {
+fun <E> RealmQuery<E>.equalTo(nameOfPrimaryKey: String, id: Any): RealmQuery<out E> {
     return when (id) {
-        is String -> equalTo(RealmJoke.getNameOfPrimaryKey(), id)
-        is Date -> equalTo(RealmJoke.getNameOfPrimaryKey(), id)
-        is Boolean -> equalTo(RealmJoke.getNameOfPrimaryKey(), id)
-        is Byte -> equalTo(RealmJoke.getNameOfPrimaryKey(), id)
-        is ByteArray -> equalTo(RealmJoke.getNameOfPrimaryKey(), id)
-        is Double -> equalTo(RealmJoke.getNameOfPrimaryKey(), id)
-        is Float -> equalTo(RealmJoke.getNameOfPrimaryKey(), id)
-        is Int -> equalTo(RealmJoke.getNameOfPrimaryKey(), id)
-        is Long -> equalTo(RealmJoke.getNameOfPrimaryKey(), id)
-        is Short -> equalTo(RealmJoke.getNameOfPrimaryKey(), id)
-        is Decimal128 -> equalTo(RealmJoke.getNameOfPrimaryKey(), id)
-        is ObjectId -> equalTo(RealmJoke.getNameOfPrimaryKey(), id)
+        is String -> equalTo(nameOfPrimaryKey, id)
+        is Date -> equalTo(nameOfPrimaryKey, id)
+        is Boolean -> equalTo(nameOfPrimaryKey, id)
+        is Byte -> equalTo(nameOfPrimaryKey, id)
+        is ByteArray -> equalTo(nameOfPrimaryKey, id)
+        is Double -> equalTo(nameOfPrimaryKey, id)
+        is Float -> equalTo(nameOfPrimaryKey, id)
+        is Int -> equalTo(nameOfPrimaryKey, id)
+        is Long -> equalTo(nameOfPrimaryKey, id)
+        is Short -> equalTo(nameOfPrimaryKey, id)
+        is Decimal128 -> equalTo(nameOfPrimaryKey, id)
+        is ObjectId -> equalTo(nameOfPrimaryKey, id)
         else -> throw Exception("Bad parameterType")
     }
 }
