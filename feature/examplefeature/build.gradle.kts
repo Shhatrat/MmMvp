@@ -7,9 +7,14 @@ plugins {
 
 dependencies {
     implementation(project(":core:api"))
+    implementation(project(":core:base"))
+    implementation(project(":core:model"))
+    implementation(project(":core:realm"))
 
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.APPCOMPAT)
     implementation(Libraries.Android.CONSTRAINT_LAYOUT)
     implementation(Libraries.MATERIAL)
+    implementation(Libraries.KOIN)
+    implementation(Libraries.RxJava)
 }

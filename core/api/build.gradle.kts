@@ -6,6 +6,7 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":core:model"))
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.APPCOMPAT)
     implementation(Libraries.RxJava)

@@ -1,6 +1,7 @@
 package com.shhatrat.api.di
 
 import com.shhatrat.api.IRemoteManager
+import com.shhatrat.api.MockRemoteManager
 import com.shhatrat.api.RemoteManagerImpl
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import okhttp3.OkHttpClient
@@ -10,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-val remoteManagerModule = module {
+val apiModule = module {
     single { createOkHttpClient() }
     single { RemoteManagerImpl.Service }
     single {
@@ -20,6 +21,10 @@ val remoteManagerModule = module {
         )
     }
     single<IRemoteManager> { RemoteManagerImpl(get()) }
+}
+
+val mockApiModule = module {
+    single<IRemoteManager> { MockRemoteManager() }
 }
 
 fun createOkHttpClient(): OkHttpClient {

@@ -9,6 +9,8 @@ dependencies {
 
     implementation(project(":core:base"))
     implementation(project(":core:api"))
+    implementation(project(":core:realm"))
+    implementation(project(":feature:examplefeature"))
 
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.APPCOMPAT)

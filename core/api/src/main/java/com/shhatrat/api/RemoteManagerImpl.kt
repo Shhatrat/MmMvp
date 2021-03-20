@@ -1,5 +1,7 @@
 package com.shhatrat.api
 
+import com.shhatrat.api.data.ResponseWrapper
+import com.shhatrat.model.Joke
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 
@@ -13,10 +15,10 @@ constructor(private val service: Service) : IRemoteManager {
 
         @GET("random")
         fun getRandomJoke(
-        ): Single<String>
+        ): Single<ResponseWrapper<Joke>>
     }
 
-    override fun getRandomJoke(): Single<String> {
-        return service.getRandomJoke()
+    override fun getRandomJoke(): Single<Joke> {
+        return service.getRandomJoke().map { it.value }
     }
 }

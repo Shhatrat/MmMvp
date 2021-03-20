@@ -2,6 +2,7 @@ import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.TestedExtension
 import com.android.build.gradle.internal.dsl.BuildType
 import com.shhatrat.mmmvp.config.AppConfig
+import com.shhatrat.mmmvp.config.INJECTION_TYPE
 import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorExtension
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
 import guru.nidi.graphviz.attribute.Color
@@ -59,6 +60,7 @@ subprojects {
                     targetSdkVersion(AppConfig.TARGET_SDK)
                 }
                 configureBuildTypes()
+                configureFlavors()
 
                 compileSdkVersion(AppConfig.TARGET_SDK)
                 buildToolsVersion("29.0.3")
@@ -145,6 +147,23 @@ fun Project.configureSpek(testedExtension: TestedExtension) {
     }
 }
 
+fun TestedExtension.configureFlavors() {
+    flavorDimensions("version")
+    productFlavors {
+        com.shhatrat.mmmvp.config.FlavorTypes.values().forEach { type ->
+            create("${type.name}_") {
+                addBuildConfigField(
+                    com.android.builder.internal.ClassFieldImpl(
+                        "String",
+                        INJECTION_TYPE,
+                        "\"${type.name}\""
+                    )
+                )
+            }
+        }
+    }
+}
+
 // Set build types for android module.
 fun TestedExtension.configureBuildTypes() {
 
@@ -166,17 +185,14 @@ fun TestedExtension.configureBuildTypes() {
             isMinifyEnabled = true
             isDebuggable = false
             configProguard(isLibrary)
-//            setIsDebugMenuEnabled(false)
         }
         maybeCreate(AppConfig.BuildTypes.DEBUG.name).apply {
-            isMinifyEnabled = true
-            isDebuggable = false
+            isMinifyEnabled = false
+            isDebuggable = true
             configProguard(isLibrary)
-//            setIsDebugMenuEnabled(true)
         }
         maybeCreate(AppConfig.BuildTypes.DEV.name).apply {
-            isDebuggable = true
-//            setIsDebugMenuEnabled(true)
+            isDebuggable = false
         }
     }
 }

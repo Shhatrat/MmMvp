@@ -8,6 +8,9 @@ plugins {
 
 dependencies {
     implementation(project(":core:base"))
+    implementation(project(":core:model"))
     implementation(Libraries.KOTLIN)
     implementation(Libraries.KOIN)
+    implementation(Libraries.RxJava)
+    implementation("com.jakewharton.rxrelay3:rxrelay:3.0.0")
 }
