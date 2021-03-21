@@ -37,7 +37,7 @@ class RealmRxActionImpl<T : RealmObject> : RealmRxActions<T> {
 
         return Observable.create { subscriber ->
             query.addChangeListener<T> { _, _ ->
-                subscriber.onNext(raw.findFirst() as T)
+                raw.findFirst()?.let { subscriber.onNext(it as T) }
             }
             subscriber.setCancellable {
                 query.removeAllChangeListeners()
