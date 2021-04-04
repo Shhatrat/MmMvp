@@ -11,6 +11,7 @@ object AppConfig {
 
     const val MIN_SDK = 23
     const val TARGET_SDK = 30
+    const val BUILD_TOOLS_VERSION = "29.0.3"
 
     object BuildTypes {
 

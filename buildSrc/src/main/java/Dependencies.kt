@@ -8,6 +8,7 @@ object BuildScript {
         const val NAVIGATION_VER = "2.3.2"
     }
 
+
     object Plugins {
         const val GMS = "com.google.gms:google-services:4.3.4"
         const val ANDROID = "com.android.tools.build:gradle:4.1.1"
@@ -71,7 +72,8 @@ object Libraries {
             return listOf(
                 "io.reactivex.rxjava3:rxjava:3.0.6",
                 "io.reactivex.rxjava3:rxandroid:3.0.0",
-                "io.reactivex.rxjava3:rxkotlin:3.0.1"
+                "io.reactivex.rxjava3:rxkotlin:3.0.1",
+                "com.jakewharton.rxrelay3:rxrelay:3.0.0"
             )
         }
 
@@ -79,6 +81,7 @@ object Libraries {
 
     const val KOIN = "org.koin:koin-android:2.2.2"
     const val MATERIAL = "com.google.android.material:material:1.3.0"
+    const val BUILD_GRADLE = "com.android.tools.build:gradle:4.1.1"
 
 
     object Retrofit : DependenciesCollection {

@@ -1,12 +1,12 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("kotlin-android-extensions")
+    androidLibrary()
+    kotlinAndroid()
 }
 
 dependencies {
-    implementation(project(":core:model"))
+
+    moduleCoreModel()
+
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.APPCOMPAT)
     implementation(Libraries.RxJava)

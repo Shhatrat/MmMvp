@@ -1,4 +1,6 @@
-include ':core:realm'
+include ':core:database'
+include ':core:database:room'
+include ':core:database:realm'
 include ':core:model'
 include ':core:api'
 include ':core:base'

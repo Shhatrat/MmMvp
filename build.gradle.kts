@@ -2,6 +2,7 @@ import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.TestedExtension
 import com.android.build.gradle.internal.dsl.BuildType
 import com.shhatrat.mmmvp.config.AppConfig
+import com.shhatrat.mmmvp.config.AppConfig.BUILD_TOOLS_VERSION
 import com.shhatrat.mmmvp.config.INJECTION_TYPE
 import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorExtension
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
@@ -12,12 +13,11 @@ import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("com.github.ben-manes.versions") version ("0.36.0")
-    id("com.vanniktech.dependency.graph.generator") version ("0.5.0")
+    benManesGradleVersion()
+    graphGenerator()
 }
 
 buildscript {
-    val kotlin_version by extra("1.4.10")
     repositories {
         google()
         jcenter()
@@ -32,6 +32,7 @@ buildscript {
         classpath(BuildScript.Plugins.NAVIGATION)
         classpath(BuildScript.Plugins.GRAPH_VISUALIZER)
         classpath(BuildScript.Plugins.PROGUARD_GENERATOR)
+        classpath(BuildScript.Plugins.REALM)
         classpath(BuildScript.Plugins.REALM)
     }
 }
@@ -63,7 +64,7 @@ subprojects {
                 configureFlavors()
 
                 compileSdkVersion(AppConfig.TARGET_SDK)
-                buildToolsVersion("29.0.3")
+                buildToolsVersion(BUILD_TOOLS_VERSION)
 
                 sourceSets.forEach { sourceSet ->
                     sourceSet.java.srcDir("src/${sourceSet.name}/kotlin")
