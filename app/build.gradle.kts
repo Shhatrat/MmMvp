@@ -2,7 +2,6 @@ plugins {
     androidApplication()
     kotlinAndroid()
     kotlinKapt()
-    kotlinAndroidExtensions()
 }
 
 dependencies {

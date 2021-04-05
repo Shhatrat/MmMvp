@@ -1,19 +1,20 @@
 package com.shhatrat.examplefeature
 
+import android.view.LayoutInflater
 import android.widget.Toast
 import com.shhatrat.base.useCase.view.NoInternetConnection
 import com.shhatrat.base.useCase.view.NoInternetConnectionImpl
 import com.shhatrat.base.view.BaseActivity
+import com.shhatrat.examplefeature.databinding.ActivityFeatureBinding
 import com.shhatrat.model.Joke
-import kotlinx.android.synthetic.main.activity_feature.*
 import org.koin.android.ext.android.inject
 
-class FeatureActivity : BaseActivity<IFeatureContract.P, IFeatureContract.V>(), IFeatureContract.V {
+class FeatureActivity :
+    BaseActivity<IFeatureContract.P, IFeatureContract.V, ActivityFeatureBinding>(),
+    IFeatureContract.V {
 
     override val noInternetConnection: NoInternetConnection by lazy {
-        NoInternetConnectionImpl(
-            getContext()
-        )
+        NoInternetConnectionImpl(getContext())
     }
 
     override val presenter: IFeatureContract.P by inject()
@@ -28,8 +29,11 @@ class FeatureActivity : BaseActivity<IFeatureContract.P, IFeatureContract.V>(), 
 
     override fun onResume() {
         super.onResume()
-        button.setOnClickListener {
-            presenter.saveRandom()
+        withBinding {
+            button.text = "changed text"
         }
     }
+
+    override fun attachViewBinding(layoutInflater: LayoutInflater) =
+        ActivityFeatureBinding.inflate(layoutInflater)
 }

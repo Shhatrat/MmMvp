@@ -11,7 +11,6 @@ const val PLUGIN_KOTLIN_KAPT = "kotlin-kapt"
 const val PLUGIN_KOTLIN_ANDROID = "kotlin-android"
 const val PLUGIN_ANDROID_APPLICATION = "com.android.application"
 const val PLUGIN_ANDROID_LIBRARY = "com.android.library"
-const val PLUGIN_KOTLIN_ANDROID_EXTENSIONS = "kotlin-android-extensions"
 const val REALM_ANDROID = "realm-android"
 
 fun PluginDependenciesSpec.benManesGradleVersion() =
@@ -28,8 +27,5 @@ fun PluginDependenciesSpec.androidApplication(): PluginDependencySpec =
     id(PLUGIN_ANDROID_APPLICATION)
 
 fun PluginDependenciesSpec.androidLibrary(): PluginDependencySpec = id(PLUGIN_ANDROID_LIBRARY)
-
-fun PluginDependenciesSpec.kotlinAndroidExtensions(): PluginDependencySpec =
-    id(PLUGIN_KOTLIN_ANDROID_EXTENSIONS)
 
 fun PluginDependenciesSpec.realmAndroid(): PluginDependencySpec = id(REALM_ANDROID)

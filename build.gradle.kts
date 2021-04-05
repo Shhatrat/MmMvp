@@ -62,6 +62,7 @@ subprojects {
                 }
                 configureBuildTypes()
                 configureFlavors()
+                buildFeatures.viewBinding = true
 
                 compileSdkVersion(AppConfig.TARGET_SDK)
                 buildToolsVersion(BUILD_TOOLS_VERSION)
