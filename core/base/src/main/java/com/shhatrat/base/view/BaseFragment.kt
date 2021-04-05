@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.shhatrat.base.navigator.Navigator
 import com.shhatrat.base.presenter.IPresenter
 
-abstract class BaseFragment<PresenterType : IPresenter<ViewType>, ViewType : IView, ViewBindingChild : ViewBinding>
+abstract class BaseFragment<PresenterType : IPresenter<ViewType>, ViewType : IView, ViewBindingChild : ViewBinding,
+        Navi : Navigator>
     : Fragment(),
-    BaseAndroidView<PresenterType, ViewType, ViewBindingChild> {
+    BaseAndroidView<PresenterType, ViewType, ViewBindingChild, Navi> {
 
     override var binding: ViewBindingChild? = null
 

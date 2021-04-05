@@ -10,7 +10,7 @@ import com.shhatrat.model.Joke
 import org.koin.android.ext.android.inject
 
 class FeatureActivity :
-    BaseActivity<IFeatureContract.P, IFeatureContract.V, ActivityFeatureBinding>(),
+    BaseActivity<IFeatureContract.P, IFeatureContract.V, ActivityFeatureBinding, FeatureNavigator>(),
     IFeatureContract.V {
 
     override val noInternetConnection: NoInternetConnection by lazy {
@@ -30,11 +30,14 @@ class FeatureActivity :
     override fun onResume() {
         super.onResume()
         withBinding {
-            button.setOnClickListener { presenter.saveRandom() }
-            button.text = "changed text"
+            button.setOnClickListener {
+                getActivity()?.let { navigator.exitApp(it) }
+            }
         }
     }
 
     override fun attachViewBinding(layoutInflater: LayoutInflater) =
         ActivityFeatureBinding.inflate(layoutInflater)
+
+    override val navigator: FeatureNavigator by inject()
 }

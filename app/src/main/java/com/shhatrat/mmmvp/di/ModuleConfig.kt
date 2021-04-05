@@ -10,9 +10,9 @@ import org.koin.core.module.Module
 
 object ModuleConfig {
 
-    private fun getApiModuleLists() = listOf(apiModule, featureModule, roomModule)
+    private fun getApiModuleLists() = listOf(apiModule, featureModule, roomModule, navigatorModule)
 
-    private fun getTestModuleLists() = listOf(mockApiModule, realmModule, featureModule)
+    private fun getTestModuleLists() = listOf(mockApiModule, realmModule, featureModule, navigatorModule)
 
     fun getModuleListByInjectionType(): List<Module> {
         return when (BuildConfig.INJECTION_TYPE) {

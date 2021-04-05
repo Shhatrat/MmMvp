@@ -4,9 +4,13 @@ import android.app.Activity
 import android.content.Context
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
+import com.shhatrat.base.navigator.Navigator
 import com.shhatrat.base.presenter.IPresenter
 
-interface BaseAndroidView<PresenterType : IPresenter<ViewType>, ViewType : IView, ViewBindingChild : ViewBinding> {
+interface BaseAndroidView<
+        PresenterType : IPresenter<ViewType>, ViewType : IView,
+        ViewBindingChild : ViewBinding,
+        Navi: Navigator> {
 
     fun getActivity(): Activity?
 
@@ -14,6 +18,8 @@ interface BaseAndroidView<PresenterType : IPresenter<ViewType>, ViewType : IView
 
     @LayoutRes
     fun getLayoutResId(): Int
+
+    val navigator: Navi
 
     val presenter: PresenterType
 

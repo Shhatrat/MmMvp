@@ -7,11 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import com.shhatrat.base.navigator.Navigator
 import com.shhatrat.base.presenter.IPresenter
 
-abstract class BaseActivity<PresenterType : IPresenter<ViewType>, ViewType : IView, ViewBindingChild : ViewBinding>
+abstract class BaseActivity<PresenterType : IPresenter<ViewType>, ViewType : IView,
+        ViewBindingChild : ViewBinding,
+        Navi : Navigator>
     : AppCompatActivity(),
-    BaseAndroidView<PresenterType, ViewType, ViewBindingChild> {
+    BaseAndroidView<PresenterType, ViewType, ViewBindingChild, Navi> {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

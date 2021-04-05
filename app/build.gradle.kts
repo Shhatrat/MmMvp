@@ -12,6 +12,7 @@ dependencies {
     moduleCoreRealm()
     moduleCoreRoom()
     moduleExampleFeature()
+    moduleExampleFeature2()
 
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.APPCOMPAT)
