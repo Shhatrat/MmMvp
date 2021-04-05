@@ -11,7 +11,7 @@ import com.shhatrat.base.presenter.IPresenter
 
 abstract class BaseActivity<PresenterType : IPresenter<ViewType>, ViewType : IView, ViewBindingChild : ViewBinding>
     : AppCompatActivity(),
-    BaseAndroidView<PresenterType, ViewType> {
+    BaseAndroidView<PresenterType, ViewType, ViewBindingChild> {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,11 +35,7 @@ abstract class BaseActivity<PresenterType : IPresenter<ViewType>, ViewType : IVi
 
     override fun getContext(): Context? = this
 
-    private var binding: ViewBindingChild? = null
-
-    fun getBinding(): ViewBindingChild =
-        binding ?: error("binding is null trying to access outside lifecycle")
-
+    override var binding: ViewBindingChild? = null
 
     private fun getInflatedLayout(inflater: LayoutInflater): View {
         val tempList = mutableListOf<ViewBindingChild>()
@@ -50,10 +46,4 @@ abstract class BaseActivity<PresenterType : IPresenter<ViewType>, ViewType : IVi
     }
 
     abstract fun attachViewBinding(layoutInflater: LayoutInflater): ViewBindingChild
-
-    fun withBinding(block: (ViewBindingChild.() -> Unit)?): ViewBindingChild {
-        val bindingAfterRunning: ViewBindingChild? = binding?.apply { block?.invoke(this) }
-        return bindingAfterRunning
-            ?: error("Accessing binding outside of lifecycle: ${this::class.java.simpleName}")
-    }
 }
