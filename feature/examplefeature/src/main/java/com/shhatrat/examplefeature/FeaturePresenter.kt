@@ -2,10 +2,13 @@ package com.shhatrat.examplefeature
 
 import com.shhatrat.api.IRemoteManager
 import com.shhatrat.base.presenter.BasePresenter
+import com.shhatrat.database.IDatabaseManager
+import com.shhatrat.model.Joke
 import io.reactivex.rxjava3.disposables.Disposable
 
 class FeaturePresenter constructor(
     private val remoteManager: IRemoteManager,
+    private val databaseManager: IDatabaseManager,
 ) : BasePresenter<IFeatureContract.V>(), IFeatureContract.P {
 
     override fun attachView(view: IFeatureContract.V) {
@@ -14,7 +17,7 @@ class FeaturePresenter constructor(
     }
 
     override fun saveRandom() {
-//        databaseManager.saveOrUpdate(RealmJoke(234, "xD"))
+        databaseManager.saveOrUpdate(Joke.getMock())
         ddddc?.dispose()
     }
 

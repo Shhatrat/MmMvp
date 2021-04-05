@@ -28,17 +28,17 @@ class IDatabaseActionsImpl<T>(
         doInTransaction { realm -> realm.delete(converter(obj).javaClass) }
     }
 
-    override fun load(objClass: KClass<Any>, id: Any): T? {
+    override fun load(objClass: KClass<out Any>, id: Any): T? {
         return realmInstance.where(realmModelClass.java).equalTo(propertyIdName, id)
             .findAll().first()?.let { realmConverter.invoke(it) }
     }
 
-    override fun loadAll(objClass: KClass<Any>): List<T>? {
+    override fun loadAll(objClass: KClass<out Any>): List<T>? {
         val results = realmInstance.where(realmModelClass.java).findAll()
         return realmInstance.copyFromRealm(results).toList().map { realmConverter.invoke(it) }
     }
 
-    override fun delete(objClass: KClass<Any>, id: Any) {
+    override fun delete(objClass: KClass<out Any>, id: Any) {
         doInTransaction { realm ->
             realm.where(realmModelClass.java).equalTo(RealmJoke.getNameOfPrimaryKey(), id).findAll()
                 .deleteAllFromRealm()

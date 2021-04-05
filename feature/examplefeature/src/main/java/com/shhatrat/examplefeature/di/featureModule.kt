@@ -5,5 +5,5 @@ import com.shhatrat.examplefeature.IFeatureContract
 import org.koin.dsl.module
 
 val featureModule = module {
-    factory<IFeatureContract.P> { FeaturePresenter(get()) }
+    factory<IFeatureContract.P> { FeaturePresenter(get(), get()) }
 }
