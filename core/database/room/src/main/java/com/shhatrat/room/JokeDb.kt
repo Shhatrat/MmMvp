@@ -25,7 +25,8 @@ abstract class JokeDb : RoomDatabase() {
                     context.applicationContext,
                     JokeDb::class.java,
                     "jokeDatabase"
-                ).build()
+                ).allowMainThreadQueries()
+                    .build()
                 INSTANCE = instance
                 return instance
             }

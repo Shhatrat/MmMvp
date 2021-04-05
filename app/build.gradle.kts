@@ -10,6 +10,7 @@ dependencies {
     moduleCoreApi()
     moduleCoreModel()
     moduleCoreRealm()
+    moduleCoreRoom()
     moduleExampleFeature()
 
     implementation(Libraries.KOTLIN)

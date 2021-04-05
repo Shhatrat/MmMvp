@@ -1,22 +1,29 @@
 package com.shhatrat.room
 
 import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.shhatrat.room.base.BaseDao
 import com.shhatrat.room.model.JokeTable
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 
 @Dao
-interface JokeDao {
+interface JokeDao : BaseDao<JokeTable> {
 
     @Query("SELECT * from joke_table")
-    fun getJoke(): Observable<List<JokeTable>>
+    fun getAllJokesObs(): Observable<List<JokeTable>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(word: JokeTable): Completable
+    @Query("DELETE FROM joke_table WHERE id=:id")
+    fun delete(id: Int)
+
+    @Query("SELECT * FROM joke_table WHERE id=:id ")
+    fun getJoke(id: Int): JokeTable?
+
+    @Query("SELECT * FROM joke_table WHERE id=:id ")
+    fun getJokeObs(id: Int): Observable<JokeTable?>
+
+    @Query("SELECT * from joke_table")
+    fun getAllJokes(): List<JokeTable>
 
     @Query("DELETE FROM joke_table")
-    fun deleteAll(): Completable
+    fun deleteAll()
 }

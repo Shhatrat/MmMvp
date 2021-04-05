@@ -30,6 +30,7 @@ class FeatureActivity :
     override fun onResume() {
         super.onResume()
         withBinding {
+            button.setOnClickListener { presenter.saveRandom() }
             button.text = "changed text"
         }
     }

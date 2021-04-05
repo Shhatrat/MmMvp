@@ -8,7 +8,6 @@ import com.shhatrat.realmInstance
 import io.realm.RealmObject
 import kotlin.reflect.KClass
 
-
 class IDatabaseActionsImpl<T>(
     private val converter: (T) -> RealmObject,
     private val realmConverter: (dd: RealmObject) -> T,
@@ -28,17 +27,17 @@ class IDatabaseActionsImpl<T>(
         doInTransaction { realm -> realm.delete(converter(obj).javaClass) }
     }
 
-    override fun load(objClass: KClass<out Any>, id: Any): T? {
+    override fun load(id: Any): T? {
         return realmInstance.where(realmModelClass.java).equalTo(propertyIdName, id)
             .findAll().first()?.let { realmConverter.invoke(it) }
     }
 
-    override fun loadAll(objClass: KClass<out Any>): List<T>? {
+    override fun loadAll(): List<T>? {
         val results = realmInstance.where(realmModelClass.java).findAll()
         return realmInstance.copyFromRealm(results).toList().map { realmConverter.invoke(it) }
     }
 
-    override fun delete(objClass: KClass<out Any>, id: Any) {
+    override fun deleteById(id: Any) {
         doInTransaction { realm ->
             realm.where(realmModelClass.java).equalTo(RealmJoke.getNameOfPrimaryKey(), id).findAll()
                 .deleteAllFromRealm()

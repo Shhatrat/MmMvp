@@ -5,12 +5,12 @@ import com.shhatrat.api.di.mockApiModule
 import com.shhatrat.di.realmModule
 import com.shhatrat.examplefeature.di.featureModule
 import com.shhatrat.mmmvp.BuildConfig
-//import com.shhatrat.examplefeature.di.featureModule
+import com.shhatrat.room.di.roomModule
 import org.koin.core.module.Module
 
 object ModuleConfig {
 
-    private fun getApiModuleLists() = listOf(apiModule, realmModule, featureModule)
+    private fun getApiModuleLists() = listOf(apiModule, featureModule, roomModule)
 
     private fun getTestModuleLists() = listOf(mockApiModule, realmModule, featureModule)
 

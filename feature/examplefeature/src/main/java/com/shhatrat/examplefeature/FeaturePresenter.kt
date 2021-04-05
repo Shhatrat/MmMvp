@@ -1,5 +1,6 @@
 package com.shhatrat.examplefeature
 
+import android.util.Log
 import com.shhatrat.api.IRemoteManager
 import com.shhatrat.base.presenter.BasePresenter
 import com.shhatrat.database.IDatabaseManager
@@ -18,6 +19,7 @@ class FeaturePresenter constructor(
 
     override fun saveRandom() {
         databaseManager.saveOrUpdate(Joke.getMock())
+        Log.d("XDD2", databaseManager.loadAll()?.first()?.joke ?: "NIE MA")
         ddddc?.dispose()
     }
 

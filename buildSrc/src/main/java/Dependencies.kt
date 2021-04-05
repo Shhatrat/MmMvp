@@ -98,6 +98,20 @@ object Libraries {
 
     }
 
+    private val room_version = "2.3.0-rc01"
+
+    object Room : DependenciesCollection {
+        override fun invoke(): Collection<String> {
+            return listOf(
+                "androidx.room:room-runtime:$room_version",
+                "androidx.room:room-ktx:$room_version",
+                "androidx.room:room-rxjava3:2.3.0-rc01"
+            )
+        }
+    }
+
+    val RoomCompiler = "androidx.room:room-compiler:$room_version"
+
     object Tests {
 
         private const val JUNIT_VER = "5.7.0"
