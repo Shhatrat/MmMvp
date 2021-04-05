@@ -1,12 +1,13 @@
 package com.shhatrat.di
 
-//import com.shhatrat.realm.DatabaseManager
-//import com.shhatrat.realm.IRealmDatabaseManager
+import com.shhatrat.database.IDatabaseManager
+import com.shhatrat.realm.DatabaseManager
+import com.shhatrat.realm.InitRealmManager
 import org.koin.dsl.module
 
 val realmModule = module {
-//    single<IRealmDatabaseManager> {
-//        InitRealmManager(get()).init()
-//        DatabaseManager()
-//    }
+    single<IDatabaseManager> {
+        InitRealmManager(get()).init()
+        DatabaseManager()
+    }
 }

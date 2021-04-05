@@ -4,5 +4,8 @@ plugins {
 }
 
 dependencies {
+
     moduleCoreModel()
+
+    implementation(Libraries.RxJava)
 }
