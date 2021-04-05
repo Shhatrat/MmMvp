@@ -2,9 +2,9 @@ package com.shhatrat.realm
 
 import com.shhatrat.actionsImpl.IDatabaseActionsImpl
 import com.shhatrat.actionsImpl.IRxDatabaseActionsImpl
-import com.shhatrat.database.IDatabaseActions
 import com.shhatrat.database.IDatabaseManager
-import com.shhatrat.database.IRxDatabaseActions
+import com.shhatrat.database.actions.IDatabaseActions
+import com.shhatrat.database.actions.IRxDatabaseActions
 import com.shhatrat.model.Joke
 import com.shhatrat.model.RealmJoke
 import com.shhatrat.model.RealmJoke.Companion.fromRealm

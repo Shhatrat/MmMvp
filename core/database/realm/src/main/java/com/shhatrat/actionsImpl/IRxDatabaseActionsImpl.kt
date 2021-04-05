@@ -1,6 +1,6 @@
 package com.shhatrat.actionsImpl
 
-import com.shhatrat.database.IRxDatabaseActions
+import com.shhatrat.database.actions.IRxDatabaseActions
 import com.shhatrat.equalTo
 import com.shhatrat.model.RealmJoke
 import com.shhatrat.realmInstance

@@ -1,4 +1,4 @@
-package com.shhatrat.database
+package com.shhatrat.database.actions
 
 import io.reactivex.rxjava3.core.Observable
 import kotlin.reflect.KClass

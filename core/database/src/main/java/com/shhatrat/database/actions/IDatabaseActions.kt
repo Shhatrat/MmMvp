@@ -1,4 +1,4 @@
-package com.shhatrat.database
+package com.shhatrat.database.actions
 
 import kotlin.reflect.KClass
 
