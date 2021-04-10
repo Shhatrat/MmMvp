@@ -84,6 +84,12 @@ object Libraries {
     const val BUILD_GRADLE = "com.android.tools.build:gradle:4.1.1"
 
 
+    const val GMS_WEARABLE = "com.google.android.gms:play-services-wearable:17.0.0"
+    const val GSON = "com.google.code.gson:gson:2.8.6"
+    const val WEAR = "androidx.wear:wear:1.1.0"
+    const val COMPILE_WEARABLE = "com.google.android.wearable:wearable:2.8.1"
+
+
     object Retrofit : DependenciesCollection {
 
         override fun invoke(): Collection<String> {
