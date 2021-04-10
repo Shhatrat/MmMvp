@@ -23,4 +23,5 @@ android {
 dependencies {
 
     implementation(Libraries.KOTLIN)
+    implementation(Libraries.KOIN)
 }

@@ -11,6 +11,7 @@ dependencies {
     moduleCoreModel()
     moduleCoreRealm()
     moduleCoreRoom()
+    moduleCpp()
     moduleExampleFeature()
     moduleExampleFeature2()
 

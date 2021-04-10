@@ -1,12 +1,13 @@
 package com.shhatrat.examplefeature
 
+//import com.shhatrat.cpp.HelloWorld
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import com.shhatrat.base.useCase.view.NoInternetConnection
 import com.shhatrat.base.useCase.view.NoInternetConnectionImpl
 import com.shhatrat.base.view.BaseActivity
-import com.shhatrat.cpp.HelloWorld
+import com.shhatrat.cpp.ICppManager
 import com.shhatrat.examplefeature.databinding.ActivityFeatureBinding
 import com.shhatrat.model.Joke
 import org.koin.android.ext.android.inject
@@ -21,6 +22,8 @@ class FeatureActivity :
 
     override val presenter: IFeatureContract.P by inject()
 
+    val cppManager: ICppManager by inject()
+
     override fun getLayoutResId(): Int = R.layout.activity_feature
 
     override fun getMvpView(): IFeatureContract.V = this
@@ -33,7 +36,7 @@ class FeatureActivity :
         super.onResume()
         withBinding {
             button.setOnClickListener {
-                Log.d("cpp", HelloWorld.stringFromJNI())
+                Log.d("cpp", cppManager.printHello())
             }
         }
     }
