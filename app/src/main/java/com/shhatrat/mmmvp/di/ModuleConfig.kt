@@ -7,15 +7,16 @@ import com.shhatrat.di.realmModule
 import com.shhatrat.examplefeature.di.featureModule
 import com.shhatrat.mmmvp.BuildConfig
 import com.shhatrat.room.di.roomModule
+import com.shhatrat.wear_manager.di.wearManagerModule
 import org.koin.core.module.Module
 
 object ModuleConfig {
 
     private fun getApiModuleLists() =
-        listOf(apiModule, featureModule, roomModule, navigatorModule, cppModule)
+        listOf(apiModule, featureModule, roomModule, navigatorModule, cppModule, wearManagerModule)
 
     private fun getTestModuleLists() =
-        listOf(mockApiModule, realmModule, featureModule, navigatorModule, cppModule)
+        listOf(mockApiModule, realmModule, featureModule, navigatorModule, cppModule, wearManagerModule)
 
     fun getModuleListByInjectionType(): List<Module> {
         return when (BuildConfig.INJECTION_TYPE) {

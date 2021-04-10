@@ -20,6 +20,7 @@ dependencies {
     moduleCoreRealm()
     moduleCoreRoom()
     moduleCpp()
+    moduleWearManager()
     moduleExampleFeature()
     moduleExampleFeature2()
 
