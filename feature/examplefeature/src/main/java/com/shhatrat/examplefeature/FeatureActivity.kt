@@ -4,6 +4,7 @@ package com.shhatrat.examplefeature
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
+import com.google.android.gms.wearable.*
 import com.shhatrat.base.useCase.view.NoInternetConnection
 import com.shhatrat.base.useCase.view.NoInternetConnectionImpl
 import com.shhatrat.base.view.BaseActivity
@@ -14,7 +15,7 @@ import org.koin.android.ext.android.inject
 
 class FeatureActivity :
     BaseActivity<IFeatureContract.P, IFeatureContract.V, ActivityFeatureBinding, FeatureNavigator>(),
-    IFeatureContract.V {
+    IFeatureContract.V,  DataClient.OnDataChangedListener {
 
     override val noInternetConnection: NoInternetConnection by lazy {
         NoInternetConnectionImpl(getContext())
@@ -39,10 +40,28 @@ class FeatureActivity :
                 Log.d("cpp", cppManager.printHello())
             }
         }
+        Wearable.getDataClient(this).addListener(this)
     }
 
     override fun attachViewBinding(layoutInflater: LayoutInflater) =
         ActivityFeatureBinding.inflate(layoutInflater)
 
     override val navigator: FeatureNavigator by inject()
+
+    override fun onDataChanged(dataEvents: DataEventBuffer) {
+        dataEvents.forEach { event ->
+            // DataItem changed
+            if (event.type == DataEvent.TYPE_CHANGED) {
+                event.dataItem.also { item ->
+                    if (item.uri.path?.compareTo("/count") == 0) {
+                        DataMapItem.fromDataItem(item).dataMap.apply {
+                            Log.d("XDDDD",  "---> ${getInt("KEY")}")
+                        }
+                    }
+                }
+            } else if (event.type == DataEvent.TYPE_DELETED) {
+                Log.d("XDDDD",  "---> :( ")
+            }
+        }
+    }
 }

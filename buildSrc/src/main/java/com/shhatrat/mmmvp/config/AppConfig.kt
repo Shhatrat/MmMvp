@@ -20,5 +20,4 @@ object AppConfig {
         val RELEASE = AppBuildType("release")
 
     }
-
 }

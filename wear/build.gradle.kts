@@ -1,7 +1,15 @@
+import com.shhatrat.mmmvp.config.AppConfig.APPLICATION_ID
+
 plugins {
     androidApplication()
     kotlinAndroid()
     kotlinKapt()
+}
+
+android{
+    defaultConfig{
+        applicationId = APPLICATION_ID
+    }
 }
 
 dependencies {
@@ -20,7 +28,5 @@ dependencies {
     implementation(Libraries.RxJava)
     implementation("androidx.wear:wear:1.1.0")
     implementation("com.google.android.gms:play-services-wearable:17.0.0")
-//    implementation("com.google.android.support:wearable:2.8.1")
     compileOnly("com.google.android.wearable:wearable:2.8.1")
-
 }
