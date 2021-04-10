@@ -1,10 +1,6 @@
 package com.shhatrat.wear_manager
 
-import io.reactivex.rxjava3.core.Observable
+import com.shhatrat.model.Joke
+import com.shhatrat.wear_manager.action.IWearAction
 
-interface IWearManager {
-
-    fun sendJokeString()
-
-    fun observeJokeString(): Observable<Int>
-}
+interface IWearManager: IWearAction<Joke>

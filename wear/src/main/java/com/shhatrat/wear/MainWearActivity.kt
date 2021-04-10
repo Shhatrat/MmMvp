@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.wear.ambient.AmbientModeSupport
-import com.google.android.gms.tasks.Task
-import com.google.android.gms.wearable.*
+import com.google.gson.Gson
+import com.shhatrat.model.Joke
 import com.shhatrat.wear_manager.WearManagerImpl
-import kotlin.random.Random
 
 class MainWearActivity : AppCompatActivity(), AmbientModeSupport.AmbientCallbackProvider {
 
@@ -21,7 +20,7 @@ class MainWearActivity : AppCompatActivity(), AmbientModeSupport.AmbientCallback
     private fun setupListener() {
         findViewById<Button>(R.id.button).setOnClickListener {
 
-            WearManagerImpl(this).sendJokeString()
+            WearManagerImpl(this, Gson()).send(Joke.generateMock())
         }
     }
 

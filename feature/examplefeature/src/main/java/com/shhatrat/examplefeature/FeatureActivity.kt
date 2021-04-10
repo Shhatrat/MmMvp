@@ -1,14 +1,11 @@
 package com.shhatrat.examplefeature
 
-//import com.shhatrat.cpp.HelloWorld
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
-import com.google.android.gms.wearable.*
 import com.shhatrat.base.useCase.view.NoInternetConnection
 import com.shhatrat.base.useCase.view.NoInternetConnectionImpl
 import com.shhatrat.base.view.BaseActivity
-import com.shhatrat.cpp.ICppManager
 import com.shhatrat.examplefeature.databinding.ActivityFeatureBinding
 import com.shhatrat.model.Joke
 import com.shhatrat.wear_manager.IWearManager
@@ -42,8 +39,8 @@ class FeatureActivity :
             }
         }
 
-        wearManager.observeJokeString().subscribeBy(
-            onNext = { Log.d("wearMessage", "int value -> $it") }
+        wearManager.observe().subscribeBy(
+            onNext = { Log.d("wearMessage", "joke value -> ${it.joke}") }
         )
     }
 
