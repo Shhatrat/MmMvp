@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/core/database/realm" />
             <option value="$PROJECT_DIR$/core/database/room" />
             <option value="$PROJECT_DIR$/core/model" />
+            <option value="$PROJECT_DIR$/cpp" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/examplefeature" />
             <option value="$PROJECT_DIR$/feature/examplefeature2" />

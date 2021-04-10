@@ -10,6 +10,7 @@ dependencies {
     moduleCoreBase()
     moduleCoreModel()
     moduleCoreDatabase()
+    moduleCpp()
 
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.APPCOMPAT)

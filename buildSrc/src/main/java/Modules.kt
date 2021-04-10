@@ -11,5 +11,6 @@ fun DependencyHandler.moduleCoreModel() = project(":core:model")
 fun DependencyHandler.moduleCoreDatabase() = project(":core:database")
 fun DependencyHandler.moduleExampleFeature() = project(":feature:examplefeature")
 fun DependencyHandler.moduleExampleFeature2() = project(":feature:examplefeature2")
+fun DependencyHandler.moduleCpp() = project(":cpp")
 
 fun DependencyHandler.project(path: String) = add(IMPLEMENTATION, (project(mapOf(PATH to path))))

@@ -1,3 +1,4 @@
+include ':cpp'
 include ':core:database'
 include ':core:database:room'
 include ':core:database:realm'

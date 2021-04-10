@@ -1,10 +1,12 @@
 package com.shhatrat.examplefeature
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import com.shhatrat.base.useCase.view.NoInternetConnection
 import com.shhatrat.base.useCase.view.NoInternetConnectionImpl
 import com.shhatrat.base.view.BaseActivity
+import com.shhatrat.cpp.HelloWorld
 import com.shhatrat.examplefeature.databinding.ActivityFeatureBinding
 import com.shhatrat.model.Joke
 import org.koin.android.ext.android.inject
@@ -31,7 +33,7 @@ class FeatureActivity :
         super.onResume()
         withBinding {
             button.setOnClickListener {
-                getActivity()?.let { navigator.exitApp(it) }
+                Log.d("cpp", HelloWorld.stringFromJNI())
             }
         }
     }
