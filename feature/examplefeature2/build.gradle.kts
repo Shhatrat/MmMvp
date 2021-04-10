@@ -6,9 +6,7 @@ plugins {
 
 dependencies {
 
-    implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-    moduleCoreModel()
+   moduleCoreModel()
 
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.APPCOMPAT)

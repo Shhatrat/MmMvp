@@ -23,6 +23,5 @@ dependencies {
     implementation(Libraries.KOIN)
     implementation(Libraries.RxJava)
     implementation("androidx.wear:wear:1.1.0")
-    implementation("com.google.android.gms:play-services-wearable:17.0.0")
     compileOnly("com.google.android.wearable:wearable:2.8.1")
 }
