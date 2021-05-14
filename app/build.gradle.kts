@@ -1,7 +1,15 @@
+import com.shhatrat.mmmvp.config.AppConfig.APPLICATION_ID
+
 plugins {
     androidApplication()
     kotlinAndroid()
     kotlinKapt()
+}
+
+android{
+    defaultConfig{
+        applicationId =  APPLICATION_ID
+    }
 }
 
 dependencies {
@@ -12,6 +20,7 @@ dependencies {
     moduleCoreRealm()
     moduleCoreRoom()
     moduleCpp()
+    moduleWearManager()
     moduleExampleFeature()
     moduleExampleFeature2()
 

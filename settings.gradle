@@ -1,3 +1,5 @@
+include ':core:wear_manager'
+include ':wear'
 include ':cpp'
 include ':core:database'
 include ':core:database:room'

@@ -11,6 +11,7 @@ dependencies {
     moduleCoreModel()
     moduleCoreDatabase()
     moduleCpp()
+    moduleWearManager()
 
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.APPCOMPAT)
