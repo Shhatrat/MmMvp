@@ -40,17 +40,14 @@ abstract class BaseFragment<PresenterType : IPresenter<ViewType>, ViewType : IVi
         container: ViewGroup?,
         attachToRoot: Boolean
     ): View {
-        val tempList = mutableListOf<ViewBindingChild>()
-        attachBinding(tempList, inflater, container, attachToRoot)
-        this.binding = tempList[0]
+        this.binding = attachBinding(inflater, container, attachToRoot)
         return binding?.root
             ?: error("Please add your inflated binding class instance at 0th position in list")
     }
 
     abstract fun attachBinding(
-        list: MutableList<ViewBindingChild>,
         layoutInflater: LayoutInflater,
         container: ViewGroup?,
         attachToRoot: Boolean
-    )
+    ): ViewBindingChild
 }
