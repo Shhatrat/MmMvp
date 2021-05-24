@@ -15,6 +15,7 @@ android{
 dependencies {
 
     moduleCoreBase()
+    moduleNavigation()
     moduleCoreApi()
     moduleCoreModel()
     moduleCoreRealm()

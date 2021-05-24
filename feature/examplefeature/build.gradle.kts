@@ -7,6 +7,7 @@ plugins {
 dependencies {
 
     moduleCoreApi()
+    moduleNavigation()
     moduleCoreBase()
     moduleCoreModel()
     moduleCoreDatabase()

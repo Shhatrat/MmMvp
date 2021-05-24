@@ -7,7 +7,7 @@ import io.reactivex.rxjava3.kotlin.subscribeBy
 
 class JokePresenter constructor(
     private val wearManager: IWearManager
-) : BasePresenter<JokeContract.V>(), JokeContract.P {
+) : BasePresenter<JokeContract.V, JokeNavigator>(), JokeContract.P {
 
     override fun observeJokes() {
         subscriptions.add(wearManager.observe().subscribeBy(

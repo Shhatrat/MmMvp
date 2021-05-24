@@ -1,15 +1,12 @@
 package com.shhatrat.mmmvp.navigation
 
 import android.content.Context
-import android.content.Intent
 import com.shhatrat.base.navigator.ExitNavigator
-import com.shhatrat.examplefeature.Feature2Activity
 import com.shhatrat.examplefeature.FeatureNavigator
+import com.shhatrat.mmmvp.destination.ExampleFeature2DestinationImpl
+import com.shhatrat.navigation.ExampleFeature2Destination
 
-class FeatureNavigatorImpl(exitNavigator: ExitNavigator) : FeatureNavigator,
-    ExitNavigator by exitNavigator {
-
-    override fun goToSecond(context: Context) {
-        context.startActivity(Intent(context, Feature2Activity::class.java))
-    }
-}
+class FeatureNavigatorImpl(private val context: Context, exitNavigator: ExitNavigator) :
+    FeatureNavigator,
+    ExitNavigator by exitNavigator,
+    ExampleFeature2Destination by ExampleFeature2DestinationImpl(context)

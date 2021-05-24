@@ -9,7 +9,7 @@ interface JokeContract {
         fun showJoke(joke: Joke)
     }
 
-    interface P : IPresenter<V> {
+    interface P : IPresenter<V, JokeNavigator> {
         fun observeJokes()
     }
 }

@@ -18,6 +18,7 @@ plugins {
 }
 
 buildscript {
+    val kotlin_version by extra("1.5.0")
     repositories {
         google()
         jcenter()
@@ -34,6 +35,7 @@ buildscript {
         classpath(BuildScript.Plugins.PROGUARD_GENERATOR)
         classpath(BuildScript.Plugins.REALM)
         classpath(BuildScript.Plugins.REALM)
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
 

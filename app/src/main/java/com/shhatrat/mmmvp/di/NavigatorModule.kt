@@ -8,5 +8,5 @@ import org.koin.dsl.module
 
 val navigatorModule = module {
     single<ExitNavigator> { ExitNavigatorImpl() }
-    single<FeatureNavigator> { FeatureNavigatorImpl(get()) }
+    single<FeatureNavigator> { params -> FeatureNavigatorImpl(params[0], get()) }
 }

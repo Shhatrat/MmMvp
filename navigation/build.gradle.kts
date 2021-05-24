@@ -1,0 +1,7 @@
+plugins {
+    androidLibrary()
+    kotlinAndroid()
+}
+
+dependencies {
+}

@@ -1,15 +1,10 @@
 package com.shhatrat.examplefeature
 
-import android.util.Log
 import android.view.LayoutInflater
-import android.widget.Toast
 import com.shhatrat.base.useCase.view.NoInternetConnection
 import com.shhatrat.base.useCase.view.NoInternetConnectionImpl
 import com.shhatrat.base.view.BaseActivity
 import com.shhatrat.examplefeature.databinding.ActivityFeatureBinding
-import com.shhatrat.model.Joke
-import com.shhatrat.wear_manager.IWearManager
-import io.reactivex.rxjava3.kotlin.subscribeBy
 import org.koin.android.ext.android.inject
 
 class FeatureActivity :
@@ -20,32 +15,21 @@ class FeatureActivity :
         NoInternetConnectionImpl(getContext())
     }
 
-    override val presenter: IFeatureContract.P by inject()
+    override val navigator: FeatureNavigator by injectContext()
 
-    private val wearManager: IWearManager by inject()
+    override val presenter: IFeatureContract.P by inject()
 
     override fun getLayoutResId(): Int = R.layout.activity_feature
 
     override fun getMvpView(): IFeatureContract.V = this
 
-    override fun showJoke(joke: Joke) {
-        Toast.makeText(this, joke.joke, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        withBinding {
-            button.setOnClickListener {
-            }
-        }
-
-        wearManager.observe().subscribeBy(
-            onNext = { Log.d("wearMessage", "joke value -> ${it.joke}") }
-        )
-    }
-
     override fun attachViewBinding(layoutInflater: LayoutInflater) =
         ActivityFeatureBinding.inflate(layoutInflater)
 
-    override val navigator: FeatureNavigator by inject()
+    override fun onViewAttached() {
+        super.onViewAttached()
+        withBinding {
+            button.setOnClickListener { presenter.onButtonClicked() }
+        }
+    }
 }

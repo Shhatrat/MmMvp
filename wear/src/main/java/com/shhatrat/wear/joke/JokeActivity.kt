@@ -2,7 +2,6 @@ package com.shhatrat.wear.joke
 
 import android.view.LayoutInflater
 import android.widget.Toast
-import com.shhatrat.base.navigator.Navigator
 import com.shhatrat.base.view.BaseActivity
 import com.shhatrat.model.Joke
 import com.shhatrat.wear.R
@@ -10,7 +9,7 @@ import com.shhatrat.wear.databinding.ActivityJokeWearBinding
 import org.koin.android.ext.android.inject
 
 class JokeActivity :
-    BaseActivity<JokeContract.P, JokeContract.V, ActivityJokeWearBinding, Navigator>(),
+    BaseActivity<JokeContract.P, JokeContract.V, ActivityJokeWearBinding, JokeNavigator>(),
     JokeContract.V {
 
     override val presenter: JokeContract.P by inject()
@@ -35,5 +34,5 @@ class JokeActivity :
     override fun attachViewBinding(layoutInflater: LayoutInflater) =
         ActivityJokeWearBinding.inflate(layoutInflater)
 
-    override val navigator: Navigator by inject()
+    override val navigator: JokeNavigator by inject()
 }

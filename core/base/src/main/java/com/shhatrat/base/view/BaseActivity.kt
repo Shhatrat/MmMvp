@@ -1,6 +1,7 @@
 package com.shhatrat.base.view
 
 import android.app.Activity
+import android.content.ComponentCallbacks
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,17 +10,31 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.shhatrat.base.navigator.Navigator
 import com.shhatrat.base.presenter.IPresenter
+import org.koin.android.ext.android.get
+import org.koin.core.parameter.ParametersDefinition
+import org.koin.core.parameter.parametersOf
+import org.koin.core.qualifier.Qualifier
 
-abstract class BaseActivity<PresenterType : IPresenter<ViewType>, ViewType : IView,
+abstract class BaseActivity<PresenterType : IPresenter<ViewType, Navi>,
+        ViewType : IView,
         ViewBindingChild : ViewBinding,
         Navi : Navigator>
     : AppCompatActivity(),
     BaseAndroidView<PresenterType, ViewType, ViewBindingChild, Navi> {
 
+    override var binding: ViewBindingChild? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getInflatedLayout(layoutInflater))
+        onViewAttached()
     }
+
+    inline fun <reified T : Any> ComponentCallbacks.injectContext(
+        qualifier: Qualifier? = null,
+        mode: LazyThreadSafetyMode = LazyThreadSafetyMode.SYNCHRONIZED,
+        noinline parameters: ParametersDefinition? = { parametersOf(this) }
+    ) = lazy(mode) { get<T>(qualifier, parameters) }
 
     override fun onStart() {
         super.onStart()
@@ -28,8 +43,8 @@ abstract class BaseActivity<PresenterType : IPresenter<ViewType>, ViewType : IVi
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onStop() {
+        super.onStop()
         detachFromPresenter()
         binding = null
     }
@@ -38,7 +53,7 @@ abstract class BaseActivity<PresenterType : IPresenter<ViewType>, ViewType : IVi
 
     override fun getContext(): Context? = this
 
-    override var binding: ViewBindingChild? = null
+    override fun onViewAttached() {}
 
     private fun getInflatedLayout(inflater: LayoutInflater): View {
         val tempList = mutableListOf<ViewBindingChild>()

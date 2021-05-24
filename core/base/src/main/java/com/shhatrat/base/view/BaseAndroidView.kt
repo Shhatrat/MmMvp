@@ -8,9 +8,15 @@ import com.shhatrat.base.navigator.Navigator
 import com.shhatrat.base.presenter.IPresenter
 
 interface BaseAndroidView<
-        PresenterType : IPresenter<ViewType>, ViewType : IView,
+        PresenterType : IPresenter<ViewType, Navi>, ViewType : IView,
         ViewBindingChild : ViewBinding,
-        Navi: Navigator> {
+        Navi : Navigator> {
+
+    val navigator: Navi
+
+    val presenter: PresenterType
+
+    var binding: ViewBindingChild?
 
     fun getActivity(): Activity?
 
@@ -19,15 +25,11 @@ interface BaseAndroidView<
     @LayoutRes
     fun getLayoutResId(): Int
 
-    val navigator: Navi
-
-    val presenter: PresenterType
-
-    var binding: ViewBindingChild?
-
     fun getMvpView(): ViewType
 
-    fun attachToPresenter() = getMvpView().let { presenter.attachView(it) }
+    fun onViewAttached()
+
+    fun attachToPresenter() = getMvpView().let { presenter.attachView(it, navigator) }
 
     fun detachFromPresenter() = presenter.detachView()
 

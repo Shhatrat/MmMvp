@@ -5,6 +5,7 @@ private const val PATH = "path"
 
 fun DependencyHandler.moduleCoreBase() = project(":core:base")
 fun DependencyHandler.moduleCoreApi() = project(":core:api")
+fun DependencyHandler.moduleNavigation() = project(":navigation")
 fun DependencyHandler.moduleCoreRealm() = project(":core:database:realm")
 fun DependencyHandler.moduleCoreRoom() = project(":core:database:room")
 fun DependencyHandler.moduleCoreModel() = project(":core:model")
