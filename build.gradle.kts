@@ -34,8 +34,7 @@ buildscript {
         classpath(BuildScript.Plugins.GRAPH_VISUALIZER)
         classpath(BuildScript.Plugins.PROGUARD_GENERATOR)
         classpath(BuildScript.Plugins.REALM)
-        classpath(BuildScript.Plugins.REALM)
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+        classpath(BuildScript.Plugins.VERSIONS)
     }
 }
 
