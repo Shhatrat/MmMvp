@@ -24,6 +24,7 @@ dependencies {
     moduleWearManager()
     moduleExampleFeature()
     moduleExampleFeature2()
+    moduleDataStore()
 
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.APPCOMPAT)

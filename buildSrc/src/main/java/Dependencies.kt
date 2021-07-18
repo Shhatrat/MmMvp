@@ -67,7 +67,6 @@ object Libraries {
     }
 
     object RxJava : DependenciesCollection {
-
         override fun invoke(): Collection<String> {
             return listOf(
                 "io.reactivex.rxjava3:rxjava:3.0.13",
@@ -76,7 +75,18 @@ object Libraries {
                 "com.jakewharton.rxrelay3:rxrelay:3.0.0"
             )
         }
+    }
 
+    object DataStore : DependenciesCollection {
+        override fun invoke(): Collection<String> {
+            val version = "1.0.0-rc01"
+            return listOf(
+                "androidx.datastore:datastore:${version}",
+                "androidx.datastore:datastore-preferences:${version}",
+                "androidx.datastore:datastore-preferences-rxjava3:${version}",
+                "androidx.datastore:datastore-rxjava3:${version}"
+            )
+        }
     }
 
     const val KOIN = "io.insert-koin:koin-android:3.1.2"

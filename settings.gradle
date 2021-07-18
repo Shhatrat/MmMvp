@@ -12,3 +12,4 @@ include ':feature:examplefeature2'
 include ':app'
 rootProject.name = "MmMvp"
 include ':navigation'
+include ':core:datastore'
