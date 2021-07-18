@@ -4,7 +4,7 @@ import BuildScript.Versions.NAVIGATION_VER
 object BuildScript {
 
     object Versions {
-        const val KOTLIN_VER = "1.5.20"
+        const val KOTLIN_VER = "1.5.21"
         const val NAVIGATION_VER = "2.4.0-alpha04"
     }
 
