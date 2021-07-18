@@ -25,5 +25,5 @@ dependencies {
     implementation(Libraries.KOIN)
     implementation(Libraries.RxJava)
     implementation(Libraries.WEAR)
-    compileOnly(Libraries.COMPILE_WEARABLE)
+    compileOnly(Libraries.WEARABLE)
 }

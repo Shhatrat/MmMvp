@@ -10,7 +10,7 @@ object BuildScript {
 
     object Plugins {
         const val GMS = "com.google.gms:google-services:4.3.8"
-        const val ANDROID = "com.android.tools.build:gradle:4.1.1"
+        const val ANDROID = "com.android.tools.build:gradle:4.2.1"
         const val JUNIT5 = "de.mannodermaus.gradle.plugins:android-junit5:1.7.1.1"
         const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VER"
         const val NAVIGATION =
@@ -85,7 +85,7 @@ object Libraries {
     const val GMS_WEARABLE = "com.google.android.gms:play-services-wearable:17.1.0"
     const val GSON = "com.google.code.gson:gson:2.8.7"
     const val WEAR = "androidx.wear:wear:1.2.0-alpha11"
-    const val COMPILE_WEARABLE = "com.google.android.wearable:wearable:2.8.1"
+    const val WEARABLE = "com.google.android.wearable:wearable:2.8.1"
 
 
     object Retrofit : DependenciesCollection {

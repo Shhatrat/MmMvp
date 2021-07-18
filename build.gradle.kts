@@ -43,7 +43,7 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
-        maven("http://jitpack.io/")
+        maven("https://jitpack.io/")
     }
 }
 
