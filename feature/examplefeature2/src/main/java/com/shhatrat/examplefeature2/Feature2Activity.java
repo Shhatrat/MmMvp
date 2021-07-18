@@ -1,8 +1,9 @@
-package com.shhatrat.examplefeature;
+package com.shhatrat.examplefeature2;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
 
 public class Feature2Activity extends AppCompatActivity {
 
