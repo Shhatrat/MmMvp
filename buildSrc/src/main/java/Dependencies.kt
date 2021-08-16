@@ -4,12 +4,12 @@ import BuildScript.Versions.NAVIGATION_VER
 object BuildScript {
 
     object Versions {
-        const val KOTLIN_VER = "1.5.21"
-        const val NAVIGATION_VER = "2.4.0-alpha04"
+        const val KOTLIN_VER = "1.5.30-RC"
+        const val NAVIGATION_VER = "2.4.0-alpha06"
     }
 
     object Plugins {
-        const val GMS = "com.google.gms:google-services:4.3.8"
+        const val GMS = "com.google.gms:google-services:4.3.10"
         const val ANDROID = "com.android.tools.build:gradle:4.2.1"
         const val JUNIT5 = "de.mannodermaus.gradle.plugins:android-junit5:1.7.1.1"
         const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VER"
@@ -18,7 +18,7 @@ object BuildScript {
         const val GRAPH_VISUALIZER = "com.vanniktech:gradle-dependency-graph-generator-plugin:0.5.0"
         const val PROGUARD_GENERATOR =
             "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.8"
-        const val REALM = "io.realm:realm-gradle-plugin:10.6.1"
+        const val REALM = "io.realm:realm-gradle-plugin:10.7.1"
         const val VERSIONS = "com.github.ben-manes:gradle-versions-plugin:0.39.0"
     }
 
@@ -48,7 +48,7 @@ object Libraries {
         }
 
         const val APPCOMPAT = "androidx.appcompat:appcompat:1.4.0-alpha03"
-        const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:2.1.0-beta02"
+        const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:2.1.0"
 
         object Navigation : DependenciesCollection {
 
@@ -69,17 +69,17 @@ object Libraries {
     object RxJava : DependenciesCollection {
         override fun invoke(): Collection<String> {
             return listOf(
-                "io.reactivex.rxjava3:rxjava:3.0.13",
+                "io.reactivex.rxjava3:rxjava:3.1.0",
                 "io.reactivex.rxjava3:rxandroid:3.0.0",
                 "io.reactivex.rxjava3:rxkotlin:3.0.1",
-                "com.jakewharton.rxrelay3:rxrelay:3.0.0"
+                "com.jakewharton.rxrelay3:rxrelay:3.0.1"
             )
         }
     }
 
     object DataStore : DependenciesCollection {
         override fun invoke(): Collection<String> {
-            val version = "1.0.0-rc01"
+            val version = "1.0.0"
             return listOf(
                 "androidx.datastore:datastore:${version}",
                 "androidx.datastore:datastore-preferences:${version}",
@@ -90,11 +90,11 @@ object Libraries {
     }
 
     const val KOIN = "io.insert-koin:koin-android:3.1.2"
-    const val MATERIAL = "com.google.android.material:material:1.5.0-alpha01"
+    const val MATERIAL = "com.google.android.material:material:1.5.0-alpha02"
 
     const val GMS_WEARABLE = "com.google.android.gms:play-services-wearable:17.1.0"
     const val GSON = "com.google.code.gson:gson:2.8.7"
-    const val WEAR = "androidx.wear:wear:1.2.0-alpha11"
+    const val WEAR = "androidx.wear:wear:1.2.0-alpha13"
     const val WEARABLE = "com.google.android.wearable:wearable:2.8.1"
 
 
@@ -111,7 +111,7 @@ object Libraries {
 
     }
 
-    private val room_version = "2.4.0-alpha03"
+    private val room_version = "2.4.0-alpha04"
 
     object Room : DependenciesCollection {
         override fun invoke(): Collection<String> {
@@ -128,7 +128,7 @@ object Libraries {
     object Tests {
 
         private const val JUNIT_VER = "5.8.0-M1"
-        private const val SPEK_VER = "2.0.16"
+        private const val SPEK_VER = "2.0.17"
 
         const val MOCKK = "io.mockk:mockk:1.12.0"
         const val STRIKT = "io.strikt:strikt-core:0.31.0"
