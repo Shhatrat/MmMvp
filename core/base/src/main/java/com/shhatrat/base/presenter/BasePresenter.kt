@@ -1,5 +1,6 @@
 package com.shhatrat.base.presenter
 
+import com.jakewharton.rxrelay3.BehaviorRelay
 import com.shhatrat.base.navigator.Navigator
 import com.shhatrat.base.view.IView
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -14,19 +15,18 @@ abstract class BasePresenter<ViewType : IView, NavigatorType : Navigator> :
 
     var navigator: NavigatorType? = null
 
+    override val presenterStateRelay: BehaviorRelay<PresenterState> = BehaviorRelay.create()
+
     override fun attachView(view: ViewType, navigator: NavigatorType) {
         this.view = view
         this.navigator = navigator
         subscriptions.clear()
     }
 
-
     override fun detachView() {
         view = null
         subscriptions.clear()
     }
-
-    override fun onViewPrepared() {}
 
     override fun isAttached(): Boolean = view != null
 

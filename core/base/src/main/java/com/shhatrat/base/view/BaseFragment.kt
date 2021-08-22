@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.shhatrat.base.navigator.Navigator
+import com.shhatrat.base.presenter.ComponentType
 import com.shhatrat.base.presenter.IPresenter
 import org.koin.android.ext.android.get
 import org.koin.core.parameter.ParametersDefinition
@@ -24,21 +25,40 @@ abstract class BaseFragment<PresenterType : IPresenter<ViewType, Navi>,
 
     override var binding: ViewBindingChild? = null
 
+    override val componentType = ComponentType.FRAGMENT
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) = getInflatedView(inflater, container, false)
 
-    override fun onStart() {
-        super.onStart()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         if (!presenter.isAttached()) {
             attachToPresenter()
         }
+        invokeStateOnCreate()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        invokeStateOnStart()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        invokeStateOnPause()
     }
 
     override fun onStop() {
         super.onStop()
+        invokeStateOnStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        invokeStateOnDestroy()
         detachFromPresenter()
         this.binding = null
     }

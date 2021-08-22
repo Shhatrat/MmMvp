@@ -27,7 +27,6 @@ class FeatureActivity :
         ActivityFeatureBinding.inflate(layoutInflater)
 
     override fun onViewAttached() {
-        super.onViewAttached()
         withBinding {
             button.setOnClickListener { presenter.onButtonClicked() }
         }

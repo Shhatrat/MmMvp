@@ -5,7 +5,9 @@ import android.content.Context
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
 import com.shhatrat.base.navigator.Navigator
+import com.shhatrat.base.presenter.ComponentType
 import com.shhatrat.base.presenter.IPresenter
+import com.shhatrat.base.presenter.PresenterState
 
 interface BaseAndroidView<
         PresenterType : IPresenter<ViewType, Navi>, ViewType : IView,
@@ -17,6 +19,8 @@ interface BaseAndroidView<
     val presenter: PresenterType
 
     var binding: ViewBindingChild?
+
+    val componentType: ComponentType
 
     fun getActivity(): Activity?
 
@@ -37,5 +41,33 @@ interface BaseAndroidView<
         val bindingAfterRunning: ViewBindingChild? = binding?.apply { block?.invoke(this) }
         return bindingAfterRunning
             ?: error("Accessing binding outside of lifecycle: ${this::class.java.simpleName}")
+    }
+
+    private fun invokeStateRelay(presenterState: PresenterState){
+        presenter.presenterStateRelay.accept(presenterState)
+    }
+
+    fun invokeStateOnCreate(){
+        invokeStateRelay(PresenterState.OnCreate(componentType))
+    }
+
+    fun invokeStateOnStart(){
+        invokeStateRelay(PresenterState.OnStart(componentType))
+    }
+
+    fun invokeStateOnResume(){
+        invokeStateRelay(PresenterState.OnResume(componentType))
+    }
+
+    fun invokeStateOnPause(){
+        invokeStateRelay(PresenterState.OnPause(componentType))
+    }
+
+    fun invokeStateOnStop(){
+        invokeStateRelay(PresenterState.OnStop(componentType))
+    }
+
+    fun invokeStateOnDestroy(){
+        invokeStateRelay(PresenterState.OnDestroy(componentType))
     }
 }

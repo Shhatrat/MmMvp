@@ -4,12 +4,15 @@ import android.app.Activity
 import android.content.ComponentCallbacks
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.shhatrat.base.navigator.Navigator
+import com.shhatrat.base.presenter.ComponentType
 import com.shhatrat.base.presenter.IPresenter
+import com.shhatrat.base.presenter.PresenterState
 import org.koin.android.ext.android.get
 import org.koin.core.parameter.ParametersDefinition
 import org.koin.core.parameter.parametersOf
@@ -24,10 +27,38 @@ abstract class BaseActivity<PresenterType : IPresenter<ViewType, Navi>,
 
     override var binding: ViewBindingChild? = null
 
+    override val componentType = ComponentType.ACTIVITY
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getInflatedLayout(layoutInflater))
         onViewAttached()
+        if (!presenter.isAttached()) {
+            attachToPresenter()
+        }
+        invokeStateOnCreate()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        invokeStateOnStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        invokeStateOnResume()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        invokeStateOnStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        invokeStateOnDestroy()
+        detachFromPresenter()
+        binding = null
     }
 
     inline fun <reified T : Any> ComponentCallbacks.injectContext(
@@ -35,19 +66,6 @@ abstract class BaseActivity<PresenterType : IPresenter<ViewType, Navi>,
         mode: LazyThreadSafetyMode = LazyThreadSafetyMode.SYNCHRONIZED,
         noinline parameters: ParametersDefinition? = { parametersOf(this) }
     ) = lazy(mode) { get<T>(qualifier, parameters) }
-
-    override fun onStart() {
-        super.onStart()
-        if (!presenter.isAttached()) {
-            attachToPresenter()
-        }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        detachFromPresenter()
-        binding = null
-    }
 
     override fun getActivity(): Activity? = this
 
