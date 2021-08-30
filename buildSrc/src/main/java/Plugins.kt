@@ -5,7 +5,6 @@ import org.gradle.plugin.use.PluginDependencySpec
 
 const val PLUGIN_GRADLE_VERSIONS = "com.github.ben-manes.versions"
 const val PLUGIN_GRADLE_VERSIONS_VERSION = "0.39.0"
-const val PLUGIN_GRAPH_GENERATOR = "com.vanniktech.dependency.graph.generator"
 const val PLUGIN_GRAPH_GENERATOR_VERSION = "0.5.0"
 const val PLUGIN_KOTLIN_KAPT = "kotlin-kapt"
 const val PLUGIN_KOTLIN_ANDROID = "kotlin-android"
@@ -15,9 +14,6 @@ const val REALM_ANDROID = "realm-android"
 
 fun PluginDependenciesSpec.benManesGradleVersion() =
     (id(PLUGIN_GRADLE_VERSIONS) version (PLUGIN_GRADLE_VERSIONS_VERSION))
-
-fun PluginDependenciesSpec.graphGenerator() =
-    (id(PLUGIN_GRAPH_GENERATOR) version (PLUGIN_GRAPH_GENERATOR_VERSION))
 
 fun PluginDependenciesSpec.kotlinKapt(): PluginDependencySpec = id(PLUGIN_KOTLIN_KAPT)
 

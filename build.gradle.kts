@@ -4,17 +4,12 @@ import com.android.build.gradle.internal.dsl.BuildType
 import com.shhatrat.mmmvp.config.AppConfig
 import com.shhatrat.mmmvp.config.AppConfig.BUILD_TOOLS_VERSION
 import com.shhatrat.mmmvp.config.INJECTION_TYPE
-import com.vanniktech.dependency.graph.generator.DependencyGraphGeneratorExtension
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
-import guru.nidi.graphviz.attribute.Color
-import guru.nidi.graphviz.attribute.Style
-import guru.nidi.graphviz.model.MutableNode
 import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     benManesGradleVersion()
-    graphGenerator()
 }
 
 buildscript {
@@ -89,24 +84,6 @@ subprojects {
                 }
             }
     }
-}
-
-// Task name is generateDependencyGraphModules.
-dependencyGraphGenerator {
-    generators = listOf(DependencyGraphGeneratorExtension.Generator(
-        name = "Modules",
-        children = { false },
-        include = { dependency ->
-            dependency.moduleGroup.startsWith(
-                "finances",
-                ignoreCase = true
-            )
-        },
-        dependencyNode = { node: MutableNode, _: ResolvedDependency ->
-            node.add(Style.FILLED, Color.rgb("#FFCB2B"))
-        }
-
-    ))
 }
 
 fun Project.enableDesugaring(testedExtension: TestedExtension) {
