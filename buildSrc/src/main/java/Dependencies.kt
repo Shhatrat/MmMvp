@@ -5,7 +5,7 @@ object BuildScript {
 
     object Versions {
         const val KOTLIN_VER = "1.5.30-RC"
-        const val NAVIGATION_VER = "2.4.0-alpha06"
+        const val NAVIGATION_VER = "2.4.0-alpha07"
     }
 
     object Plugins {
@@ -18,7 +18,7 @@ object BuildScript {
         const val GRAPH_VISUALIZER = "com.vanniktech:gradle-dependency-graph-generator-plugin:0.5.0"
         const val PROGUARD_GENERATOR =
             "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.8"
-        const val REALM = "io.realm:realm-gradle-plugin:10.7.1"
+        const val REALM = "io.realm:realm-gradle-plugin:10.8.0"
         const val VERSIONS = "com.github.ben-manes:gradle-versions-plugin:0.39.0"
     }
 
@@ -93,7 +93,7 @@ object Libraries {
     const val MATERIAL = "com.google.android.material:material:1.5.0-alpha02"
 
     const val GMS_WEARABLE = "com.google.android.gms:play-services-wearable:17.1.0"
-    const val GSON = "com.google.code.gson:gson:2.8.7"
+    const val GSON = "com.google.code.gson:gson:2.8.8"
     const val WEAR = "androidx.wear:wear:1.2.0-alpha13"
     const val WEARABLE = "com.google.android.wearable:wearable:2.8.1"
 
@@ -131,7 +131,7 @@ object Libraries {
         private const val SPEK_VER = "2.0.17"
 
         const val MOCKK = "io.mockk:mockk:1.12.0"
-        const val STRIKT = "io.strikt:strikt-core:0.31.0"
+        const val STRIKT = "io.strikt:strikt-core:0.32.0"
 
         // It's required for Strikt.
         const val FILE_PEEK = "com.christophsturm:filepeek:0.1.3"
