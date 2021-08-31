@@ -13,7 +13,6 @@ plugins {
 }
 
 buildscript {
-    val kotlin_version by extra("1.5.0")
     repositories {
         google()
         jcenter()

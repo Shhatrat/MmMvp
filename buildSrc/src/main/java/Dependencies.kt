@@ -4,7 +4,7 @@ import BuildScript.Versions.NAVIGATION_VER
 object BuildScript {
 
     object Versions {
-        const val KOTLIN_VER = "1.5.30-RC"
+        const val KOTLIN_VER = "1.5.30"
         const val NAVIGATION_VER = "2.4.0-alpha07"
     }
 
@@ -69,7 +69,7 @@ object Libraries {
     object RxJava : DependenciesCollection {
         override fun invoke(): Collection<String> {
             return listOf(
-                "io.reactivex.rxjava3:rxjava:3.1.0",
+                "io.reactivex.rxjava3:rxjava:3.1.1",
                 "io.reactivex.rxjava3:rxandroid:3.0.0",
                 "io.reactivex.rxjava3:rxkotlin:3.0.1",
                 "com.jakewharton.rxrelay3:rxrelay:3.0.1"
@@ -94,7 +94,7 @@ object Libraries {
 
     const val GMS_WEARABLE = "com.google.android.gms:play-services-wearable:17.1.0"
     const val GSON = "com.google.code.gson:gson:2.8.8"
-    const val WEAR = "androidx.wear:wear:1.2.0-alpha13"
+    const val WEAR = "androidx.wear:wear:1.2.0-beta01"
     const val WEARABLE = "com.google.android.wearable:wearable:2.8.1"
 
 
@@ -127,7 +127,7 @@ object Libraries {
 
     object Tests {
 
-        private const val JUNIT_VER = "5.8.0-M1"
+        private const val JUNIT_VER = "5.8.0-RC1"
         private const val SPEK_VER = "2.0.17"
 
         const val MOCKK = "io.mockk:mockk:1.12.0"
